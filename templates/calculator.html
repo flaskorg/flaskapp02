@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/calc-style.css') }}">
+</head>
+<body>
+  <div class="card">
+    <h2>Simple Calculator</h2>
+    <form method="POST">
+      <input type="text" name="num1" placeholder="Enter first number" required class="input-box">
+      <input type="text" name="num2" placeholder="Enter second number" required class="input-box">
+
+      <select name="operation" class="input-box">
+        <option value="add">➕ Add</option>
+        <option value="subtract">➖ Subtract</option>
+        <option value="multiply">✖️ Multiply</option>
+        <option value="divide">➗ Divide</option>
+      </select>
+
+      <button class="button" type="submit">Calculate</button>
+    </form>
+
+    {% if result is not none %}
+      <p class="result">Result: <strong>{{ result }}</strong></p>
+    {% endif %}
+    
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>
+
